@@ -88,3 +88,7 @@
 2022-04-08 13:34:14.885 [main] INFO  Calculator - Enter power : 3.0
 2022-04-08 13:34:14.886 [main] INFO  Calculator - [RESULT - POWER] - -91125.0
 2022-04-08 13:43:27.244 [main] INFO  Calculator - Calculator closed
+2022-04-08 14:13:56.904 [main] INFO  Calculator - [RESULT - SQ ROOT] - 2.0
+2022-04-08 14:13:56.906 [main] INFO  Calculator - [RESULT - SQ ROOT] - 1.0
+2022-04-08 14:13:56.908 [main] INFO  Calculator - [RESULT - SQ ROOT] - 1.7320508075688772
+2022-04-08 14:13:56.908 [main] INFO  Calculator - [RESULT - SQ ROOT] - 2.0
