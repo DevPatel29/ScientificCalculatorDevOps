@@ -1,0 +1,7 @@
+- name: Pull and Run docker image
+  hosts: ubuntu18
+  tasks:
+    - name: Pull devpatel29/scientific_calculator_devops
+      docker_image:
+        name: devpatel29/scientific_calculator_devops
+        source: pull
