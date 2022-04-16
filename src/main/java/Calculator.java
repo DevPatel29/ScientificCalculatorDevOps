@@ -23,22 +23,19 @@ public class Calculator {
             }
 
             System.out.println("Answer : " + answer);
-            logger.info("[RESULT - SQ ROOT] - " + answer);
+            logger.info("RESULT - SquareRoot of " + value + " = " + answer);
             return answer;
         }
-    }
-
-    public static double fact(double num) {
-        double facto = 1;
-        for(int i = 1; i <= num; ++i)
-        { facto *= i;   }
-        return  facto;
     }
 
     public static double Factorial(double value) {
         if(value < 0) return -1;
 
-        return fact(value);
+        double ans = 1;
+        for(int i = 1; i <= value; ++i) {
+            ans = ans * i;
+        }
+        return  ans;
     }
 
     public static double NaturalLog(double value) {
@@ -60,9 +57,8 @@ public class Calculator {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("##################################################################");
         System.out.println("Scientific Calculator DevOps");
-        System.out.println("##################################################################");
+        System.out.println("################################################################## \n");
         logger.info("Calculator started");
 
 
@@ -79,6 +75,7 @@ public class Calculator {
 
             try {
                 selected = sc.nextInt();
+                logger.info("Selected option: " + selected);
             } catch (InputMismatchException exp) {
                 logger.error("Invalid option selected: " + exp);
                 return;
@@ -115,7 +112,7 @@ public class Calculator {
                         else {
                             double res = Factorial(value);
                             System.out.println("Answer : " + res);
-                            logger.info("[RESULT - FACTORIAL] - " + res);
+                            logger.info("RESULT - Factorial of " + value + " = " + res);
                         }
                         break;
                     case 3:
@@ -127,7 +124,7 @@ public class Calculator {
                         } else {
                             res1 = NaturalLog(value);
                             System.out.println("Answer : " + res1);
-                            logger.info("[RESULT - NATURAL LOG] - "+ res1);
+                            logger.info("RESULT - NaturalLog of " + value + " = " + res1);
                         }
                         break;
                     case 4:
@@ -142,7 +139,7 @@ public class Calculator {
                             double res2 = Power(value, pow);
                             logger.info("Enter power : " + pow);
                             System.out.println("Answer : " + res2);
-                            logger.info("[RESULT - POWER] - " + res2);
+                            logger.info("RESULT - Power of " + value + " = " + res2);
                         }
                         break;
                     default:
@@ -160,8 +157,6 @@ public class Calculator {
                     condition = false;
                 }
             }
-
         }
-
     }
 }
