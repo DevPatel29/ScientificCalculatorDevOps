@@ -138,14 +138,6 @@ public class Calculator {
                         System.out.println("Not a valid option");
                         return;
                 }
-
-//                System.out.print("\n\nPlease Select the operation!!!\n1. Continue, \n2. Exit\n");
-//                c = sc.nextInt();
-//                System.out.println();
-//                if(c == 2) {
-//                    System.out.println("Thank you!!\n");
-//                    condition = false;
-//                }
             }
         }
     }
