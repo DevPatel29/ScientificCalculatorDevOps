@@ -9,7 +9,6 @@ public class Calculator {
     public static double SquareRoot(double value) {
         if(value < 0) {
             System.out.println("Invalid Input: Negative number");
-            logger.error("Invalid Input: Negative number");
             return  -1;
         }
         else {
@@ -17,7 +16,6 @@ public class Calculator {
             try {
                 answer = Math.sqrt(value);
             } catch (Exception e) {
-                logger.error("SquareRoot error: " + e);
                 System.out.println("SquareRoot error");
                 return -1;
             }
@@ -35,6 +33,7 @@ public class Calculator {
         for(int i = 1; i <= value; ++i) {
             ans = ans * i;
         }
+        logger.info("RESULT - Factorial of " + value + " = " + ans);
         return  ans;
     }
 
@@ -44,27 +43,28 @@ public class Calculator {
         try {
             ans = Math.log(value);
         } catch (ArithmeticException  e) {
-            logger.error("Invalid input: Natural Log");
             System.out.println("Natural log error: "+ e);
         }
 
+        logger.info("RESULT - NaturalLog of " + value + " = " + ans);
         return ans;
     }
 
     public static double Power(double base, double power) {
-        return (double)Math.pow(base, power);
+        double ans = (double)Math.pow(base, power);
+        logger.info("RESULT - Power of " + base + "^" + power +  " = " + ans);
+
+        return ans;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Scientific Calculator DevOps");
-        System.out.println("################################################################## \n");
-        logger.info("Calculator started");
-
+        System.out.println("################################################################## ");
 
         boolean condition = true;
         while(condition) {
-            System.out.println("Please Choose operation to perform");
+            System.out.println("\nPlease Choose operation to perform");
             System.out.println("1. Square root");
             System.out.println("2. Factorial");
             System.out.println("3. Natural log");
@@ -75,9 +75,8 @@ public class Calculator {
 
             try {
                 selected = sc.nextInt();
-                logger.info("Selected option: " + selected);
             } catch (InputMismatchException exp) {
-                logger.error("Invalid option selected: " + exp);
+                System.out.println("Invalid option selected: " + exp);
                 return;
             }
 
@@ -85,6 +84,7 @@ public class Calculator {
 
             if(selected == 5) {
                 condition = false;
+                System.out.println("\nThank you!!\n");
             }
             else{
                 System.out.print("Input value : ");
@@ -92,9 +92,8 @@ public class Calculator {
 
                 try {
                     value = sc.nextDouble();
-                    logger.info("Input value : " + value);
                 } catch (InputMismatchException exp){
-                    logger.error("Invalid value input: " + exp);
+                    System.out.println("Invalid value input: " + exp);
                     return;
                 }
 
@@ -106,25 +105,21 @@ public class Calculator {
                     case 2:
                         if(value < 0) {
                             System.out.println("Invalid input: Negative number");
-                            logger.error("Invalid input: Negative number");
                             return;
                         }
                         else {
                             double res = Factorial(value);
                             System.out.println("Answer : " + res);
-                            logger.info("RESULT - Factorial of " + value + " = " + res);
                         }
                         break;
                     case 3:
                         double res1;
                         if(value < 0) {
                             System.out.println("Invalid input: Negative number");
-                            logger.error("Invalid input: Negative number");
                             return;
                         } else {
                             res1 = NaturalLog(value);
                             System.out.println("Answer : " + res1);
-                            logger.info("RESULT - NaturalLog of " + value + " = " + res1);
                         }
                         break;
                     case 4:
@@ -133,29 +128,24 @@ public class Calculator {
 
                         if(pow < 0) {
                             System.out.println("Invalid input: Negative power");
-                            logger.error("Invalid input: Negative power");
                             return;
                         } else {
                             double res2 = Power(value, pow);
-                            logger.info("Enter power : " + pow);
                             System.out.println("Answer : " + res2);
-                            logger.info("RESULT - Power of " + value + " = " + res2);
                         }
                         break;
                     default:
                         System.out.println("Not a valid option");
-                        logger.info("Not a valid option");
                         return;
                 }
 
-                System.out.print("\n\nPlease Select the operation!!!\n1. Continue, \n2. Exit\n");
-                c = sc.nextInt();
-                System.out.println();
-                if(c == 2) {
-                    logger.info("Calculator closed");
-                    System.out.println("Thank you!!\n");
-                    condition = false;
-                }
+//                System.out.print("\n\nPlease Select the operation!!!\n1. Continue, \n2. Exit\n");
+//                c = sc.nextInt();
+//                System.out.println();
+//                if(c == 2) {
+//                    System.out.println("Thank you!!\n");
+//                    condition = false;
+//                }
             }
         }
     }
